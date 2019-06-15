@@ -14,6 +14,7 @@ firebase.initializeApp({
   databaseURL: "https://karkhana-makerspace.firebaseio.com"
 });
 
+
 //Create the server and set the default routes
 
 app.get('/',function(req,res){
@@ -52,8 +53,7 @@ app.post('/sign_up' ,function(req,res){
 		"branch" : branch,
     // "semester" : sem
 	}
-	
-  
+
 const docRef = db.collection("user").doc(email);
 docRef.set(data).then(function(){
   console.log("Text saved");
