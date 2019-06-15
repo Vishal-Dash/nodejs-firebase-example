@@ -1,0 +1,30 @@
+{
+  "name": "nodejs-firebase-example",
+  "version": "1.0.0",
+  "description": "Nodejs firebase in 4 step",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wahengchang/nodejs-firebase-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wahengchang/nodejs-firebase-example/issues"
+  },
+  "homepage": "https://github.com/wahengchang/nodejs-firebase-example#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase": "^6.2.0",
+    "firebase-admin": "^5.13.1",
+    "firebase-functions": "^3.0.1",
+    "firebase-tools": "^7.0.0",
+    "popups": "^1.1.3"
+  },
+  "devDependencies": {}
+}
