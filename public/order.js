@@ -55,11 +55,13 @@ function submit(){
         "viafill" : viafill,
         "prod time" : prodtme
     }
-    var storageBucket = firebase.storage().ref();
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             console.log(data);
+            console.log(file);
         } else {
           // No user is signed in.
           result = 0;
