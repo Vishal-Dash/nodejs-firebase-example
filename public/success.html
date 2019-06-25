@@ -1,30 +1,270 @@
 <html>
 	<head>
-		<title> Signup Form | nodejsera </title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<title> Signup Form</title>
 		
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<!-- Including bootstrap v3.3.7 -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Including Custom css -->
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+		<link rel="stylesheet" href="styleorder.css" type="text/css">
+		<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+		<!-- Add Firebase products that you want to use -->
+		<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+		<script src="order.js"></script>
 	</head>
 	<body>
+	
 		<br>
-				<br>
-				<br>
+		<br>
+		<br>
 		<div class="container" >
 			<div class="row">
 				<div class="col-md-3">
+					<!-- Blank DIV -->
 				</div>
-				
 				<div class="col-md-6 main">
-					
-					<h1> Signup Successful <br> Congratulations!!</h1>
-					
+					<!-- Form Tag starts here -->
+					<!-- Action attribute is the route on backend. Method is POST -->
+					<h1><u><b>PCB Details</b></u></h1>
+					<form>
+						<div class="row">
+							<div class="column">
+									<h3><strong>Material</strong></h3>		
+									<select id="sel_mat" required>
+									  <option value="FR4">FR4</option>
+									  <option value="MCPCB">MCPCB</option>
+									  <option value="RO4350B">RO4350B</option>
+									  <option value="RO4003C">RO4003C</option>
+									  <option value="RT5880">RT5880</option>
+									  <option value="RT3003">RT3003</option>
+									  <option value="RO4534">RO4534</option>
+									  <option value="RO6002">RO6002</option>
+									  <option value="ITERA-MT-3.38">ITERA-MT-3.38</option>
+									  <option value="ITERA-MT-3.5">ITERA-MT-3.5</option>
+									</select>
+								</form>
+							</div>
+							<div class="column">
+									<form>
+											<h3><strong>Layers</strong></h3>
+											<select id="sel_layer" required>
+											  <option value="Single Sided">Single Sided</option>
+											  <option value="Double Sided">Double Sided</option>
+											  <option value="ML4">ML4</option>
+											  <option value="ML6">ML6</option>
+											  <option value="ML8">ML8</option>
+											  <option value="ML10">ML10</option>
+											  <option value="ML12">ML12</option>
+											</select>
+										  </form>
+							</div>
+						</div>
+					  <br>
+					  <form>
+						  <div class="row">
+							  <div class="column">
+									<h3><strong>TG</strong></h3>
+									<select id="sel_tg" required>
+									  <option value="stdtg">Std. TG (130-140 ºC)</option>
+									  <option value="midtg">Middle TG (150 ºC)</option>
+									  <option value="hghtg">High TG (>=170 ºC)</option>
+									</select>
+								  </form>
+							  </div>
+							  <div class="column">
+									<h3><strong>PCB Quantity Required</strong></h3>
+									<input type="number" name="reqpcb" id="reqpcb" placeholder="0.0" required>			
+							  </div>
+						  </div>
+					  <h3><strong>PCB Dimensions</strong></h3>
+					  <img src="dimensions.png" class="center">
+					  <div class="row">
+						  <div class="column">
+							<h3><strong>Value of X (In mm)</strong></h3>
+							<input type="number" name="pcbx" id="pcbdimx" placeholder="0.0" required>
+						  </div>
+						  <div class="column">
+							<h3><strong>Value of Y (In mm)</strong></h3>
+							<input type="number" name="pcby" id="pcbdimy" placeholder="0.0" required>
+						  </div>
+					  	</div>
+					  	<br>
+						<h3><strong>PCB Name</strong></h3>
+						<input type="text" name="pcbname" id="pcbname" placeholder="Name" required>
+						<br><br>
+						<h3><strong>Board Thickness (In mm)</strong></h3>
+						<img src="boardthickness.png" class="center-dim">
+						<form>
+							<select class="center-thick" id="brdthick" required>
+							  <option value="0.3">0.3</option>
+							  <option value="0.4">0.4</option>
+							  <option value="0.5">0.5</option>
+							  <option value="0.6">0.5</option>
+							  <option value="0.7">0.5</option>
+							  <option value="0.8">0.8</option>
+							  <option value="1.0">1.0</option>
+							  <option value="1.2">1.2</option>
+							  <option value="1.6">1.6</option>
+							  <option value="2.0">2.0</option>
+							  <option value="2.4">2.4</option>
+							  <option value="3.2">3.2</option>
+							</select>
+						</form>
+						<br>
+						<h3><strong>Start Cu Thickness (In micron (u))</strong></h3>
+						<img src="CuThickness.png" class="center-thick">
+						<form>
+							<select class="center-thick" id="cuthick" required>
+							  <option value="15.50">15.50</option>
+							  <option value="35">35</option>
+							  <option value="70">70</option>
+							</select>
+						</form>
+						<br>
+						<div class="row">
+							<div class="column">
+									<form>
+											<h3><strong>Surface Finish</strong></h3>		
+											<select id="sur-finish" required>
+											  <option value="hal-sn-pb">HAL(Sn-Pb)</option>
+											  <option value="immersiontin">Immersion Tin</option>
+											  <option value="imersiongold">Immersion Gold/ENIG</option>
+											  <option value="any-lead-free">Any Lead Free</option>
+											  <option value="lead-free-hal">Lead Free HAL</option>
+											  <option value="nocopper">No Copper</option>
+											  <option value="onlycopper">Only Copper</option>
+											</select>
+									</form>
+							</div>
+							<div class="column">
+									<form>
+											<h3><strong>Solder Mask Top</strong></h3>		
+											<select id="smt">
+											  <option value="no">No Solder Mask</option>
+											  <option value="green">green</option>
+											  <option value="white">White</option>
+											  <option value="red">Red</option>
+											  <option value="black">Black</option>
+											  <option value="blue">Blue</option>
+											</select>
+									</form>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+								<div class="column">
+										<form>
+												<h3><strong>Solder Mask Bottom</strong></h3>		
+												<select id="smb">
+												  <option value="no">No Solder Mask</option>
+												  <option value="green">green</option>
+												  <option value="white">White</option>
+												  <option value="red">Red</option>
+												  <option value="black">Black</option>
+												  <option value="blue">Blue</option>
+												</select>
+										</form>
+								</div>
+								<div class="column">
+										<form>
+												<h3><strong>Legend Top</strong></h3>		
+												<select id="ltop">
+												  <option value="noleg">No Legend</option>
+												  <option value="white">White</option>
+												  <option value="black">Black</option>
+												</select>
+										</form>
+								</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="column">
+									<form>
+											<h3><strong>Legend Bottom</strong></h3>		
+											<select id="lbot">
+											  <option value="noleg">No Legend</option>
+											  <option value="white">White</option>
+											  <option value="black">Black</option>
+											</select>
+									</form>
+							</div>
+							<div class="column">
+									<form>
+											<h3><strong>Peel off</strong></h3>
+												<select id="peeloff" required>
+												  <option value="no">No</option>
+												  <option value="top">Top</option>
+												  <option value="bottom">Bottom</option>
+												  <option value="both">Both Side</option>
+												</select>
+											</form>
+							</div>
+						</div>	
+						<br>
+						<h3><strong>Countersunk</strong></h3>
+						<img src="PTH-shapes.png" class="center-thick">
+						<form>
+							<select id="cntrshnk" required>
+							<option value="pth">PTH Countersunk</option>
+	 	      				<option value="pthn">NPTH Countersunk</option>
+							<option value="no">No</option>
+							</select>
+						</form>
+						<br>
+						<div class="row">
+							<div class="column">
+									<form>
+											<h3><strong>Impedance Control</strong></h3>		
+											<select id="impctrl">
+												<option value="no">No</option>
+												  <option value="yes">Yes</option>
+											</select>
+										</form>
+							</div>
+							<div class="column">
+									<form>
+											<h3><strong>Viafill</strong></h3>		
+												<select id="viafill">
+													<option value="no">No</option>
+													  <option value="yes">Yes</option>
+												</select>
+										</form>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="column">
+									<form>
+											<h3><strong>PCB Production Lead Time</strong></h3>		
+												<select id="pcbprodldtime">
+													<option value="three">3 Working Days</option>
+													<option value="five">5 Working Days</option>
+													<option value="seven">7 Working Days</option>
+													<option value="ten">10 Working Days</option>
+													<option value="fifteen">15 Working Days</option>
+													<option value="twentyone">21 Working Days</option>
+													<option value="twentyeight">28 Working Days</option>
+												</select>
+											</form>					
+							</div>
+							<div class="column">
+									<h3><strong>Company Name</strong></h3>
+									<input type="text" name="compname" id="compname" placeholder="XYZC" required>
+							</div>
+						</div>
+						<br>
+						<form>
+							<h3><strong>UPLOAD GERBER DATA(.ZIP or .RAR)</strong></h3>		 
+							<label for="fileselect"><h4>Upload:</h4></label> 
+							<input type="file" name="upload" id="fileselect"> 
+						</form> 
+						<br>
+						<button id="submit" name="submit" value="Submit" onclick="submit()"><h4><b>SUBMIT</b></h4></button>
 				</div>
-				
-				
-				<div class="col-md-3">
-				</div>
-				
 			</div>
 		</div>
 	</body>
-</html>
+</html>	

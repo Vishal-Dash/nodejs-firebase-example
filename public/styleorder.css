@@ -15,24 +15,11 @@
 }
 input{
 	font-family: 'Josefin Slab', serif;
-    width: 100%;
-	font-size: 30px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    border: none;
+    width: 50%;
+	font-size: 20px;
+    padding: 6px 10px;
+    border: thin;
     border-bottom: 2px solid #000000;
-}
-input[type=submit] {
-	font-family: 'Josefin Slab', serif;
-	width: 100%;
-    background-color: #000000;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-	border-radius: 15px;
 }
 input:focus,
 select:focus,
@@ -40,7 +27,6 @@ textarea:focus,
 button:focus {
     outline: none;
 }
-
 select{
     font-family: 'Josefin Slab', serif;
     width: fit-content;
@@ -50,49 +36,40 @@ select{
     border: none;
     border-bottom: 2px solid #000000;
 }
-
-input:hover {
-	font-family: 'Josefin Slab', serif;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-	border: none;
-    border-bottom: 2px solid #757474;
-}
-
-input[type=submit]:hover {
-	font-family: 'Josefin Slab', serif;
-	width: 100%;
-    background-color: #3d3c3c;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-	border-radius: 15px;
-}
 button{
     font-family: 'Josefin Slab', serif;
-	width: 30%;
-    /* background-color: #3d3c3c; */
-    border: none;
-    color: white;
+    width: max-content;
+    height: max-content;
+    background-color: beige;
+    color: black;
     padding: 16px 32px;
     text-decoration: none;
-    margin: 3px 1px;
     cursor: pointer;
     border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 85%;
   }
   .column {
     float: left;
     width: 50%;
     padding: 5px;
+  }
+  .center-dim {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+  .center-thick {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
   }
